@@ -135,4 +135,29 @@ class ProfileController extends Controller
             'message' => 'Semua data berhasil dimasukkan ke database'
         ], 200);
     }
+
+    public function bulkUpdate(Request $request, $id)
+    {
+        $postIds = explode(",", $id);
+        $posts = Profile::whereIn('id', $postIds)->get()->toArray();
+
+        // foreach ($request->list_users as $value) {
+        //     $profile = array(
+        //         'username' => $value['username'],
+        //         'email' => $value['email'],
+        //         'first_name' => $value['first_name'],
+        //         'last_name' => $value['last_name'],
+        //         'address' => $value['address'],
+        //         'city' => $value['city'],
+        //         'province' => $value['province'],
+        //         'country' => $value['country']
+        //     );
+
+        //     $posts->update($profile);
+        // }
+
+        // return response()->json([
+        //     'message' => 'Semua data berhasil dimasukkan ke database'
+        // ], 200);
+    }
 }
