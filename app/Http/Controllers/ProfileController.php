@@ -93,4 +93,14 @@ class ProfileController extends Controller
             'message' => 'Data berhasil di hapus',
         ], 200);
     }
+
+    public function showAll()
+    {
+        $profile = Profile::get();
+        $collection = ProfileResource::collection($profile);
+
+        return response()->json([
+            'data' => $collection
+        ], 200);
+    }
 }
