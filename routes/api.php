@@ -26,4 +26,5 @@ Route::prefix('post')->group(function () {
     Route::put('{profile:id}/edit', [ProfileController::class, 'update']);
     Route::delete('{profile:id}/delete', [ProfileController::class, 'delete']);
     Route::get('show-all-data', [ProfileController::class, 'showAll']);
+    Route::get('get-by-id/{profile:id}', [ProfileController::class, 'findOne']);
 });
