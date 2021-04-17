@@ -96,11 +96,10 @@ class ProfileController extends Controller
 
     public function showAll()
     {
-        $profile = Profile::get();
-        $collection = ProfileResource::collection($profile);
+        $profile = Profile::paginate(5);
 
         return response()->json([
-            'data' => $collection
+            'data' => $profile
         ], 200);
     }
 
@@ -169,14 +168,6 @@ class ProfileController extends Controller
 
         return response()->json([
             'message' => 'Data yang dipilih berhasil di hapus'
-        ], 200);
-    }
-
-    public function pagination()
-    {
-        $profile = Profile::paginate(5);
-        return response()->json([
-            'data' => $profile
         ], 200);
     }
 }

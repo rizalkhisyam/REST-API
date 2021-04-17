@@ -1,62 +1,347 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1>Laravel 8 - REST API</h1>
+<p>API ini dibuat menggunakan framework laravel 8</p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+#### Berikut model pada API
 
-## About Laravel
+-   Profile
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+#### Berikut daftar end point pada API
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   end point insert list user
+-   end point update list user
+-   end point delete user
+-   end point get all user
+-   end point get user by id
+-   end point bulk insert list user
+-   end point bulk update list user
+-   end point bulk delete user
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+#### Langkah-langkah pemakaian
 
-## Learning Laravel
+Untuk menggunakan API anda dapat meng-clone repository atau dapat men-download file berupa zip.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+###### `git clone https://github.com/rizalkhisyam/REST-API.git`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+##### 1. Setting .env
 
-## Laravel Sponsors
+Setelah file project didownload atau diclone, copy file .env.example file dan rename file tersebut menjadi .env saja. Buat database dan koneksikan database yang anda buat pada file .env.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+`DB_CONNECTION=mysql`<br>
+`DB_HOST=127.0.0.1`<br>
+`DB_PORT=3306` <br>
+`DB_DATABASE=(---isi dengan database yang anda buat--)`<br>
+`DB_USERNAME=root`<br>
+`DB_PASSWORD=`<br>
 
-### Premium Partners
+##### 2. Composer Install
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+Masuk ke directory project melalui terminal dan jalankan perintal pada terminal untuk menginstall compose package project
+`composer install`
 
-## Contributing
+##### 3. Generate Key
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Pada .env file APP_KEY akan secara otomatis kosong, untuk mendapatkan APP_KEY yang baru masuk pada directory project dengan terminal lalu jalankan perintah berikut:
+`php artisan key:generate`
 
-## Code of Conduct
+##### 4. Run Migration
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Setelah database sudah sudah diubah, jalankan perintah migration untuk membuat table migrasi ke database dengan menjalankan perintah sebagai berikut:
+`php artisan migrate`
 
-## Security Vulnerabilities
+#### Dokumentasi API end point
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<table>
+  <tr>
+    <th>Name</th>
+    <th>API Url</th>
+    <th>Method</th>
+    <th>Response</th>
+    <th>Body Params</th>
+    <th>Header Params</th>
+  </tr>
+  <tr>
+    <td>Insert</td>
+    <td>http://localhost:8000/api/post/create</td>
+    <td>POST</td>
+    <td>{
+    "message": "User baru berhasil ditambahkan",
+    "data": {
+        "username": "allain2247",
+        "email": "allain2337@gmail.com",
+        "password": "$2y$10$DpMiWgMDJurYePn1zNehBOtc5f7dxN2NLGIhV1EVq8T2M2xhQhv7S",
+        "first_name": "rizal",
+        "last_name": "khisyam",
+        "address": "bwi jl. 123",
+        "city": "banyuwangi",
+        "province": "jatim",
+        "country": "indonesia",
+        "updated_at": "2021-04-17T16:48:28.000000Z",
+        "created_at": "2021-04-17T16:48:28.000000Z",
+        "id": 16
+         }
+         }</td>
+        <td>{
+         "username" : "allain2247",
+         "email" : "allain2337@gmail.com",
+         "password": "poertu",
+         "first_name": "rizal",
+         "last_name": "khisyam",
+         "address": "bwi jl. 123",
+         "city": "banyuwangi",
+         "province": "jatim",
+         "country": "indonesia"
+          }</td>
+        <td>application/json</td>
+  </tr>
+ <tr>
+  <td>Update</td>
+  <td>http://localhost:8000/api/post/1/edit</td>
+  <td>PUT</td>
+  <td>{
+    "message": "Data berhasil di update",
+    "data_baru": {
+        "id": 7,
+        "username": "adminbaru1",
+        "email": "adminbaru@gmail.com",
+        "password": "$2y$10$XBljXDYBY1sG.1XcPe8AM.blciiV0k0cKUAeD3HVDXultxSJeSHQW",
+        "first_name": "rizal",
+        "last_name": "admin",
+        "address": "bwi jl. 123",
+        "city": "banyuwangi",
+        "province": "jatim",
+        "country": "indonesia",
+        "created_at": "2021-04-17T07:26:57.000000Z",
+        "updated_at": "2021-04-17T16:54:28.000000Z",
+        "deleted_at": null
+    }
+}</td>
+  <td>{
+    "username" : "adminbaru1",
+    "email" : "adminbaru@gmail.com",
+    "first_name": "rizal",
+    "last_name": "admin",
+    "address": "bwi jl. 123",
+    "city": "banyuwangi",
+    "province": "jatim",
+    "country": "indonesia"
+}</td>
+  <td>application/json</td>
+ </tr>
+ <tr>
+  <td>Delete</td>
+  <td>http://localhost:8000/api/post/14/delete</td>
+  <td>delete</td>
+  <td>{
+    "message": "Data berhasil di hapus"
+}</td>
+  <td> - </td>
+  <td> - </td>
+ </tr>
+ <tr>
+  <td>get all user</td>
+  <td>http://localhost:8000/api/post/show-all-data</td>
+  <td>get</td>
+  <td>{
+    "data": [
+        {
+            "id": 7,
+            "username": "adminbaru1",
+            "first_name": "rizal",
+            "last_name": "admin",
+            "address": "bwi jl. 123",
+            "city": "banyuwangi",
+            "province": "jatim",
+            "country": "indonesia"
+        },
+        {
+            "id": 12,
+            "username": "childe2",
+            "first_name": "ajax",
+            "last_name": "khisyam",
+            "address": "bwi jl. 123",
+            "city": "banyuwangi",
+            "province": "jatim",
+            "country": "indonesia"
+        },
+        {
+            "id": 13,
+            "username": "diluc2",
+            "first_name": "ajax",
+            "last_name": "diluc",
+            "address": "bwi jl. 123",
+            "city": "banyuwangi",
+            "province": "jatim",
+            "country": "indonesia"
+        },
+        {
+            "id": 15,
+            "username": "eren2",
+            "first_name": "eren",
+            "last_name": "yeager",
+            "address": "bwi jl. 123",
+            "city": "banyuwangi",
+            "province": "jatim",
+            "country": "indonesia"
+        },
+        {
+            "id": 16,
+            "username": "allain2247",
+            "first_name": "rizal",
+            "last_name": "khisyam",
+            "address": "bwi jl. 123",
+            "city": "banyuwangi",
+            "province": "jatim",
+            "country": "indonesia"
+        }
+    ]
+}</td>
+  <td> - </td>
+  <td> - </td>
+ </tr>
+ <tr>
+  <td>Get One User By Id</td>
+  <td>http://localhost:8000/api/post/get-by-id/15</td>
+  <td>get</td>
+  <td>{
+    "data": {
+        "id": 15,
+        "username": "eren2",
+        "email": "eren2@gmail.com",
+        "password": "$2y$10$GCzvNkbxZhXpdeE9JtrPvePfVokDMuP8lNAlkJWMy8X4cOEu8sLfy",
+        "first_name": "eren",
+        "last_name": "yeager",
+        "address": "bwi jl. 123",
+        "city": "banyuwangi",
+        "province": "jatim",
+        "country": "indonesia",
+        "created_at": "2021-04-17T07:34:36.000000Z",
+        "updated_at": "2021-04-17T07:34:36.000000Z",
+        "deleted_at": null
+    }
+}</td>
+  <td> - </td>
+  <td> - </td>
+ </tr>
+ <tr>
+  <td>Bulk Insert</td>
+  <td>http://localhost:8000/api/post/create-many</td>
+  <td>post</td>
+  <td>{
+    "message": "Semua data berhasil dimasukkan ke database"
+}</td>
+  <td>{
+    "list_users": [
+        {
+            "username" : "allbedooo",
+            "email" : "childe2sad@gmail.com",
+            "password": "poertu",
+            "first_name": "ajax",
+            "last_name": "khisyam",
+            "address": "bwi jl. 123",
+            "city": "banyuwangi",
+            "province": "jatim",
+            "country": "indonesia"
+        },
+        {
+            "username" : "eulaa",
+            "email" : "diluc2sadsa@gmail.com",
+            "password": "poertu",
+            "first_name": "ajax",
+            "last_name": "diluc",
+            "address": "bwi jl. 123",
+            "city": "banyuwangi",
+            "province": "jatim",
+            "country": "indonesia"
+        },
+        {
+            "username" : "xiao",
+            "email" : "jean2xa@gmail.com",
+            "password": "jean",
+            "first_name": "jean",
+            "last_name": "khisyam",
+            "address": "bwi jl. 123",
+            "city": "banyuwangi",
+            "province": "jatim",
+            "country": "indonesia"
+        },
+        {
+            "username" : "sucrose",
+            "email" : "eren2sadsa@gmail.com",
+            "password": "poertu",
+            "first_name": "eren",
+            "last_name": "yeager",
+            "address": "bwi jl. 123",
+            "city": "banyuwangi",
+            "province": "jatim",
+            "country": "indonesia"
+        }
+    ]
+}</td>
+  <td>application/json</td>
+ </tr>
+ <tr>
+  <td>Bulk Update</td>
+  <td>http://localhost:8000/api/post/edit-many/1,2,3,4</td>
+  <td>put</td>
+  <td></td>
+  <td>{
+    "list_users": [
+        {
+            "username" : "childe22",
+            "email" : "childe2@gmail.com",
+            "password": "poertu",
+            "first_name": "ajax",
+            "last_name": "khisyam",
+            "address": "bwi jl. 123",
+            "city": "banyuwangi",
+            "province": "jatim",
+            "country": "indonesia"
+        },
+        {
+            "username" : "diluc222",
+            "email" : "diluc2@gmail.com",
+            "password": "poertu",
+            "first_name": "ajax",
+            "last_name": "diluc",
+            "address": "bwi jl. 123",
+            "city": "banyuwangi",
+            "province": "jatim",
+            "country": "indonesia"
+        },
+        {
+            "username" : "jean222",
+            "email" : "jean2@gmail.com",
+            "password": "jean",
+            "first_name": "jean",
+            "last_name": "khisyam",
+            "address": "bwi jl. 123",
+            "city": "banyuwangi",
+            "province": "jatim",
+            "country": "indonesia"
+        },
+        {
+            "username" : "eren222",
+            "email" : "eren2@gmail.com",
+            "password": "poertu",
+            "first_name": "eren",
+            "last_name": "yeager",
+            "address": "bwi jl. 123",
+            "city": "banyuwangi",
+            "province": "jatim",
+            "country": "indonesia"
+        }
+    ]
+}</td>
+  <td>application/json</td>
+ </tr>
+ <tr>
+  <td>Bulk Delete</td>
+  <td>http://localhost:8000/api/post/delete-many/8,9,10</td>
+  <td>delete</td>
+  <td>{
+    "message": "Data yang dipilih berhasil di hapus"
+}</td>
+  <td></td>
+  <td></td>
+ </tr>
+</table>
