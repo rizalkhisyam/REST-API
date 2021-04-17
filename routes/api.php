@@ -29,4 +29,5 @@ Route::prefix('post')->group(function () {
     Route::get('get-by-id/{profile:id}', [ProfileController::class, 'findOne']);
     Route::post('create-many', [ProfileController::class, 'bulkInsert']);
     Route::put('edit-many/{profile:id}', [ProfileController::class, 'bulkUpdate']);
+    Route::delete('delete-many/{profile:id}', [ProfileController::class, 'bulkDelete']);
 });

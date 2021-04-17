@@ -160,4 +160,15 @@ class ProfileController extends Controller
         //     'message' => 'Semua data berhasil dimasukkan ke database'
         // ], 200);
     }
+
+    public function bulkDelete($id)
+    {
+        $ids = explode(',', $id);
+        $profiles = Profile::whereIn('id', $ids);
+        $profiles->delete();
+
+        return response()->json([
+            'message' => 'Data yang dipilih berhasil di hapus'
+        ], 200);
+    }
 }
