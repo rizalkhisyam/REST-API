@@ -138,62 +138,97 @@ Setelah database sudah sudah diubah, jalankan perintah migration untuk membuat t
   <td> - </td>
  </tr>
  <tr>
-  <td>get all user</td>
+  <td>Get All Users</td>
   <td>http://localhost:8000/api/post/show-all-data</td>
   <td>get</td>
   <td>{
-    "data": [
-        {
-            "id": 7,
-            "username": "adminbaru1",
-            "first_name": "rizal",
-            "last_name": "admin",
-            "address": "bwi jl. 123",
-            "city": "banyuwangi",
-            "province": "jatim",
-            "country": "indonesia"
-        },
-        {
-            "id": 12,
-            "username": "childe2",
-            "first_name": "ajax",
-            "last_name": "khisyam",
-            "address": "bwi jl. 123",
-            "city": "banyuwangi",
-            "province": "jatim",
-            "country": "indonesia"
-        },
-        {
-            "id": 13,
-            "username": "diluc2",
-            "first_name": "ajax",
-            "last_name": "diluc",
-            "address": "bwi jl. 123",
-            "city": "banyuwangi",
-            "province": "jatim",
-            "country": "indonesia"
-        },
-        {
-            "id": 15,
-            "username": "eren2",
-            "first_name": "eren",
-            "last_name": "yeager",
-            "address": "bwi jl. 123",
-            "city": "banyuwangi",
-            "province": "jatim",
-            "country": "indonesia"
-        },
-        {
-            "id": 16,
-            "username": "allain2247",
-            "first_name": "rizal",
-            "last_name": "khisyam",
-            "address": "bwi jl. 123",
-            "city": "banyuwangi",
-            "province": "jatim",
-            "country": "indonesia"
-        }
-    ]
+    "data": {
+        "current_page": 1,
+        "data": [
+            {
+                "id": 7,
+                "username": "adminbaru1",
+                "first_name": "rizal",
+                "last_name": "admin",
+                "address": "bwi jl. 123",
+                "city": "banyuwangi",
+                "province": "jatim",
+                "country": "indonesia"
+            },
+            {
+                "id": 12,
+                "username": "childe2",
+                "first_name": "ajax",
+                "last_name": "khisyam",
+                "address": "bwi jl. 123",
+                "city": "banyuwangi",
+                "province": "jatim",
+                "country": "indonesia"
+            },
+            {
+                "id": 13,
+                "username": "diluc2",
+                "first_name": "ajax",
+                "last_name": "diluc",
+                "address": "bwi jl. 123",
+                "city": "banyuwangi",
+                "province": "jatim",
+                "country": "indonesia"
+            },
+            {
+                "id": 15,
+                "username": "eren2",
+                "first_name": "eren",
+                "last_name": "yeager",
+                "address": "bwi jl. 123",
+                "city": "banyuwangi",
+                "province": "jatim",
+                "country": "indonesia"
+            },
+            {
+                "id": 16,
+                "username": "allain2247",
+                "first_name": "rizal",
+                "last_name": "khisyam",
+                "address": "bwi jl. 123",
+                "city": "banyuwangi",
+                "province": "jatim",
+                "country": "indonesia"
+            }
+        ],
+        "first_page_url": "http://localhost:8000/api/post/show-all-data?page=1",
+        "from": 1,
+        "last_page": 2,
+        "last_page_url": "http://localhost:8000/api/post/show-all-data?page=2",
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000/api/post/show-all-data?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": "http://localhost:8000/api/post/show-all-data?page=2",
+                "label": "2",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8000/api/post/show-all-data?page=2",
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "next_page_url": "http://localhost:8000/api/post/show-all-data?page=2",
+        "path": "http://localhost:8000/api/post/show-all-data",
+        "per_page": 5,
+        "prev_page_url": null,
+        "to": 5,
+        "total": 9
+    }
 }</td>
   <td> - </td>
   <td> - </td>
