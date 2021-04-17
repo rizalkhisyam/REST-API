@@ -171,4 +171,12 @@ class ProfileController extends Controller
             'message' => 'Data yang dipilih berhasil di hapus'
         ], 200);
     }
+
+    public function pagination()
+    {
+        $profile = Profile::paginate(5);
+        return response()->json([
+            'data' => $profile
+        ], 200);
+    }
 }
