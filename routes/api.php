@@ -23,4 +23,5 @@ Route::prefix('post')->group(function () {
     Route::post('create', [ProfileController::class, 'store']);
     Route::get('show', [ProfileController::class, 'show']);
     Route::get('{profile:id}/edit', [ProfileController::class, 'edit']);
+    Route::put('{profile:id}/edit', [ProfileController::class, 'update']);
 });
