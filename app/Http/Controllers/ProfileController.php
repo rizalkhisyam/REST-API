@@ -103,4 +103,13 @@ class ProfileController extends Controller
             'data' => $collection
         ], 200);
     }
+
+    public function findOne($id)
+    {
+        $profile = Profile::find($id);
+
+        return response()->json([
+            'data' => $profile
+        ], 200);
+    }
 }
