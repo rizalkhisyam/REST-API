@@ -112,4 +112,27 @@ class ProfileController extends Controller
             'data' => $profile
         ], 200);
     }
+
+    public function bulkInsert(Request $request)
+    {
+        foreach ($request->list_users as $value) {
+            $profile = array(
+                'username' => $value['username'],
+                'email' => $value['email'],
+                'password' => Hash::make($value['password']),
+                'first_name' => $value['first_name'],
+                'last_name' => $value['last_name'],
+                'address' => $value['address'],
+                'city' => $value['city'],
+                'province' => $value['province'],
+                'country' => $value['country']
+            );
+
+            $profiles = Profile::create($profile);
+        }
+
+        return response()->json([
+            'message' => 'Semua data berhasil dimasukkan ke database'
+        ], 200);
+    }
 }
