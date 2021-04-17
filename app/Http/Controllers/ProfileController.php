@@ -83,4 +83,14 @@ class ProfileController extends Controller
             'data_baru' => $profile,
         ], 200);
     }
+
+    public function delete($id)
+    {
+        $profile = Profile::find($id);
+        $profile->delete();
+
+        return response()->json([
+            'message' => 'Data berhasil di hapus',
+        ], 200);
+    }
 }
