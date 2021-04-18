@@ -49,9 +49,6 @@ class ProfileController extends Controller
     public function edit($id)
     {
         $profile = Profile::find($id);
-        // return view('edit', [
-        //     'profile' => $profile
-        // ]);
         return response()->json([
             'data' => $profile
         ], 200);
@@ -138,26 +135,13 @@ class ProfileController extends Controller
     public function bulkUpdate(Request $request, $id)
     {
         $postIds = explode(",", $id);
-        $posts = Profile::whereIn('id', $postIds)->get()->toArray();
+        $posts = Profile::whereIn('id', $postIds)->update([
+            'status' => $request->status
+        ]);
 
-        // foreach ($request->list_users as $value) {
-        //     $profile = array(
-        //         'username' => $value['username'],
-        //         'email' => $value['email'],
-        //         'first_name' => $value['first_name'],
-        //         'last_name' => $value['last_name'],
-        //         'address' => $value['address'],
-        //         'city' => $value['city'],
-        //         'province' => $value['province'],
-        //         'country' => $value['country']
-        //     );
-
-        //     $posts->update($profile);
-        // }
-
-        // return response()->json([
-        //     'message' => 'Semua data berhasil dimasukkan ke database'
-        // ], 200);
+        return response()->json([
+            'message' => 'Semua data yang dipilih berhasil di ubah'
+        ], 200);
     }
 
     public function bulkDelete($id)
