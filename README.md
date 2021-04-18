@@ -43,10 +43,17 @@ Masuk ke directory project melalui terminal dan jalankan perintal pada terminal 
 Pada .env file APP_KEY akan secara otomatis kosong, untuk mendapatkan APP_KEY yang baru masuk pada directory project dengan terminal lalu jalankan perintah berikut:
 `php artisan key:generate`
 
+Lalu masukkan key yang baru pada file .env, pada bagian
+`APP_KEY=`
+
 ##### 4. Run Migration
 
 Setelah database sudah sudah diubah, jalankan perintah migration untuk membuat table migrasi ke database dengan menjalankan perintah sebagai berikut:
 `php artisan migrate`
+
+##### 5. Run Project
+
+Setelah 1-4 sudah selesai selanjutnya untuk menjalankan API jalankan perintah `php artisan serve` pada terminal.
 
 #### Dokumentasi API end point
 
@@ -316,57 +323,14 @@ Setelah database sudah sudah diubah, jalankan perintah migration untuk membuat t
  </tr>
  <tr>
   <td>Bulk Update</td>
-  <td>http://localhost:8000/api/post/edit-many/1,2,3,4</td>
+  <td>http://localhost:8000/api/post/edit-many/18,19,20</td>
   <td>put</td>
-  <td></td>
   <td>{
-    "list_users": [
-        {
-            "username" : "childe22",
-            "email" : "childe2@gmail.com",
-            "password": "poertu",
-            "first_name": "ajax",
-            "last_name": "khisyam",
-            "address": "bwi jl. 123",
-            "city": "banyuwangi",
-            "province": "jatim",
-            "country": "indonesia"
-        },
-        {
-            "username" : "diluc222",
-            "email" : "diluc2@gmail.com",
-            "password": "poertu",
-            "first_name": "ajax",
-            "last_name": "diluc",
-            "address": "bwi jl. 123",
-            "city": "banyuwangi",
-            "province": "jatim",
-            "country": "indonesia"
-        },
-        {
-            "username" : "jean222",
-            "email" : "jean2@gmail.com",
-            "password": "jean",
-            "first_name": "jean",
-            "last_name": "khisyam",
-            "address": "bwi jl. 123",
-            "city": "banyuwangi",
-            "province": "jatim",
-            "country": "indonesia"
-        },
-        {
-            "username" : "eren222",
-            "email" : "eren2@gmail.com",
-            "password": "poertu",
-            "first_name": "eren",
-            "last_name": "yeager",
-            "address": "bwi jl. 123",
-            "city": "banyuwangi",
-            "province": "jatim",
-            "country": "indonesia"
-        }
-    ]
+    "message": "Semua data yang dipilih berhasil di ubah"
 }</td>
+  <td>{
+    "status": "Karyawan Tetap"
+ }</td>
   <td>application/json</td>
  </tr>
  <tr>
